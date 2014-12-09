@@ -1,11 +1,11 @@
-# nya-caniuse
+# caniuse-api
 
 request the caniuse data to check browsers compatibilities
 
 ## Installation
 
 ```console
-$ npm install nya-caniuse
+$ npm install caniuse-api
 ```
 
 ## Usage
@@ -22,8 +22,8 @@ var caniuse = require('nya-caniuse')
 
 _ask since when a feature is available_
 
-* 'y': Since which browser version the feature is available
-* 'n': Up to which browser version the feature is unavailable
+* `y`: Since which browser version the feature is available
+* `n`: Up to which browser version the feature is unavailable
 
 Ex:
 
@@ -53,9 +53,9 @@ _search for a caniuse feature name_
 Ex:
 
 ```javascript
-caniuse.query('radius') // ['border-radius']
-caniuse.query('nothingness') // []
-caniuse.query('css3')
+caniuse.search('radius') // ['border-radius']
+caniuse.search('nothingness') // []
+caniuse.search('css3')
 /*
 [ 'css3-boxsizing',
   'css3-colors',

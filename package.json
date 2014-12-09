@@ -1,19 +1,24 @@
 {
-  "name": "nya-caniuse",
+  "name": "caniuse-api",
   "version": "0.0.1",
   "description": "request the caniuse data to check browsers compatibilities",
   "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "LICENSE"
+  ],
   "dependencies": {
     "caniuse-db": "^1.0.30000030"
   },
   "devDependencies": {
     "6to5": "^1.14.17",
+    "tap-spec": "^2.1.1",
     "tape": "^3.0.3"
   },
   "scripts": {
     "build": "6to5 src --out-dir dist",
-    "start": "npm run build && node dist/index.js",
-    "test": "npm run build && tape dist/test/*.js"
+    "prepublish": "npm run build",
+    "test": "6to5-node test/*.js | tap-spec"
   },
   "repository": {
     "type": "git",

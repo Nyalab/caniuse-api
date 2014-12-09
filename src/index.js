@@ -1,4 +1,4 @@
-import {startsWith, contains, parseCaniuseData} from "./lib/utils"
+import {startsWith, contains, parseCaniuseData} from "./utils"
 import * as fs from 'fs'
 
 var browsers = ["ie", "firefox", "chrome", "ios_saf", "android"]
