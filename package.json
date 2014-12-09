@@ -1,0 +1,25 @@
+{
+  "name": "nya-caniuse",
+  "version": "0.0.1",
+  "description": "request the caniuse data to check browsers compatibilities",
+  "main": "dist/index.js",
+  "dependencies": {
+    "caniuse-db": "^1.0.30000030"
+  },
+  "devDependencies": {
+    "6to5": "^1.14.17",
+    "tape": "^3.0.3"
+  },
+  "scripts": {
+    "build": "6to5 src --out-dir dist",
+    "start": "npm run build && node dist/index.js",
+    "test": "npm run build && tape dist/test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nyalab/nya-caniuse.git"
+  },
+  "bugs": "http://github.com/Nyalab/nya-caniuse/issues",
+  "author": "Nyalab",
+  "license": "MIT"
+}
