@@ -23,11 +23,8 @@
     "prepublish": "npm run build",
     "test": "6to5-node test/*.js | tap-spec"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Nyalab/nya-caniuse.git"
-  },
-  "bugs": "http://github.com/Nyalab/nya-caniuse/issues",
-  "author": "Nyalab",
+  "repository": "nyalab/caniuse-api",
+  "keywords": ["caniuse", "browserslist"],
+  "author": "nyalab",
   "license": "MIT"
 }
