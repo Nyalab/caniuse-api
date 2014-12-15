@@ -1,3 +1,6 @@
+import * as uniq from "lodash.uniq"
+import * as browserslist from "browserslist"
+
 export function contains(str, substr) {
   return !!~str.indexOf(substr)
 }
@@ -33,4 +36,8 @@ export function parseCaniuseData(feature, browsers) {
   })
 
   return support
+}
+
+export function cleanBrowsersList(browserList) {
+  return uniq(browserslist(browserList).map((browser) => browser.split(" ")[0]))
 }

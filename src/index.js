@@ -1,13 +1,12 @@
 import * as fs from "fs"
 import * as memoize from "lodash.memoize"
-import * as uniq from "lodash.uniq"
 import * as browserslist from "browserslist"
 
-import {contains, parseCaniuseData} from "./utils"
+import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
 
 var browsers
 function setBrowserScope(browserList) {
-  browsers = uniq(browserslist(browserList).map((browser) => browser.split(" ")[0]))
+  browsers = cleanBrowsersList(browserList)
 }
 
 function getBrowserScope() {
@@ -35,7 +34,17 @@ function getSupport(query) {
 }
 
 function isSupported(feature, browsers) {
-  let data = require(`caniuse-db/features-json/${feature}`)
+  let data
+  try {
+    data = require(`caniuse-db/features-json/${feature}`)
+  } catch(e) {
+    let res = find(feature)
+    if (res.length === 1) {
+      data = require(`caniuse-db/features-json/${res[0]}`)
+    } else {
+      throw new ReferenceError("Please provide a proper feature name")
+    }
+  }
 
   return browserslist(browsers)
     .map((browser) => browser.split(" "))
