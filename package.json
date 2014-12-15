@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "request the caniuse data to check browsers compatibilities",
   "main": "dist/index.js",
   "files": [
@@ -8,7 +8,10 @@
     "LICENSE"
   ],
   "dependencies": {
-    "caniuse-db": "^1.0.30000030"
+    "browserslist": "^0.1.0",
+    "caniuse-db": "^1.0.30000030",
+    "lodash.memoize": "^2.4.1",
+    "lodash.uniq": "^2.4.1"
   },
   "devDependencies": {
     "6to5": "^1.14.17",
