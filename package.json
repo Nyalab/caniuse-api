@@ -15,16 +15,21 @@
   },
   "devDependencies": {
     "6to5": "^1.14.17",
+    "jshint": "^2.5.10",
     "tap-spec": "^2.1.1",
     "tape": "^3.0.3"
   },
   "scripts": {
     "build": "6to5 src --out-dir dist",
+    "lint": "jshint src",
     "prepublish": "npm run build",
-    "test": "6to5-node test/*.js | tap-spec"
+    "test": "npm run lint && 6to5-node test/*.js | tap-spec"
   },
   "repository": "nyalab/caniuse-api",
-  "keywords": ["caniuse", "browserslist"],
+  "keywords": [
+    "caniuse",
+    "browserslist"
+  ],
   "author": "nyalab",
   "license": "MIT"
 }
