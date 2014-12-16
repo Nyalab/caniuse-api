@@ -1,4 +1,4 @@
-# caniuse-api
+# caniuse-api [![Build Status](https://travis-ci.org/Nyalab/caniuse-api.svg?branch=master)](https://travis-ci.org/Nyalab/caniuse-api)
 
 request the caniuse data to check browsers compatibilities
 
