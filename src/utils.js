@@ -6,7 +6,7 @@ export function contains(str, substr) {
 }
 
 export function parseCaniuseData(feature, browsers) {
-  var support = []
+  var support = {}
   var letters
   var letter
 
@@ -14,21 +14,19 @@ export function parseCaniuseData(feature, browsers) {
     support[browser] = {}
     for (var info in feature.stats[browser]) {
       letters = feature.stats[browser][info].split(" ")
+      info = parseFloat(info.split("-")[0]) //if info is a range, take the left
+      if (isNaN(info)) continue
       for (var i = 0; i < letters.length ; i++) {
         letter = letters[i]
         if (letter === "y"){ // min support asked, need to find the min value
-          if (typeof support[browser][letter] === "undefined") {
-            support[browser][letter] = Number.MAX_VALUE
-          }
-          if (parseFloat(info) < support[browser][letter]) {
-            support[browser][letter] = parseFloat(info)
+          if (typeof support[browser][letter] === "undefined" ||
+              info < support[browser][letter]) {
+            support[browser][letter] = info
           }
         } else { // any other support, need to find the max value
-          if (typeof support[browser][letter] === "undefined") {
-            support[browser][letter] = Number.MIN_VALUE
-          }
-          if (parseFloat(info) > support[browser][letter]) {
-            support[browser][letter] = parseFloat(info)
+          if (typeof support[browser][letter] === "undefined" ||
+              info > support[browser][letter]) {
+            support[browser][letter] = info
           }
         }
       }

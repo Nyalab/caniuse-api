@@ -69,3 +69,4 @@ function getLatestStableBrowsers() {
 setBrowserScope()
 
 export {getSupport, isSupported, find, getLatestStableBrowsers, setBrowserScope, getBrowserScope}
+

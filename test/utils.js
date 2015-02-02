@@ -25,7 +25,7 @@ test("parseCaniuseData should work", (t) => {
     chrome: { y: 4, x: 4 },
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
-    and_chr: { y: 39 }
+    and_chr: { y: 40 }
   }
 
   t.deepEqual(parseCaniuseData(borderRadiusFeature, browsers), correctSupport, "border-radius support is correct")

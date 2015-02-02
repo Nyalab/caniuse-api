@@ -47,7 +47,7 @@ test("getSupport tests", (t) => {
     chrome: { y: 4, x: 4 },
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
-    and_chr: { y: 39 }
+    and_chr: { y: 40 }
   }
 
   t.deepEqual(caniuse.getSupport("border-radius"), borderRadiusSupport, "border-radius support is ok")
