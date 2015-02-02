@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "request the caniuse data to check browsers compatibilities",
   "main": "dist/index.js",
   "files": [
