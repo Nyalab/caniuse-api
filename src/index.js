@@ -14,7 +14,7 @@ function getBrowserScope() {
 }
 
 var features = fs
-  .readdirSync("node_modules/caniuse-db/features-json")
+  .readdirSync(`${__dirname}/node_modules/caniuse-db/features-json`)
   .map((file) => file.replace(".json", ""))
 
 var parse = memoize(parseCaniuseData, function(feature, browsers) {
