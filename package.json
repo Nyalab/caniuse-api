@@ -23,8 +23,10 @@
     "build": "6to5 src --out-dir dist",
     "lint": "jshint src",
     "prepublish": "npm run build",
-    "test": "npm run lint && 6to5-node test/*.js | tap-spec"
-  },
+    "pretest": "6to5-node src/generate-features.js",
+    "test": "npm run lint && 6to5-node test/*.js | tap-spec",
+    "postinstall": "[ -d dist ] && node dist/generate-features.js || true"
+ },
   "repository": "nyalab/caniuse-api",
   "keywords": [
     "caniuse",
