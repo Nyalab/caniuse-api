@@ -15,7 +15,7 @@ test("parseCaniuseData should work", (t) => {
 
   let borderRadiusFeature = require('caniuse-db/features-json/border-radius')
   let correctSupport = {
-    safari: { y: 3.1, x: 4 },
+    safari: { y: 3.1, x: 4, '#1': 6.1 },
     opera: { n: 10, y: 10.5 },
     op_mini: { n: 5 },
     ios_saf: { y: 3.2, x: 3.2 },

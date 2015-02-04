@@ -1,9 +1,8 @@
-import * as fs from "fs"
 import * as memoize from "lodash.memoize"
 import * as browserslist from "browserslist"
-import * as path from "path"
 
 import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
+import * as features from "../features.json"
 
 var browsers
 function setBrowserScope(browserList) {
@@ -13,12 +12,6 @@ function setBrowserScope(browserList) {
 function getBrowserScope() {
   return browsers
 }
-
-var caniusePath = path.dirname(require.resolve("caniuse-db/package.json"))
-var featuresPath = path.join(caniusePath, "features-json")
-var features = fs
-  .readdirSync(featuresPath)
-  .map((file) => file.replace(".json", ""))
 
 var parse = memoize(parseCaniuseData, function(feature, browsers) {
   return feature.title + browsers
