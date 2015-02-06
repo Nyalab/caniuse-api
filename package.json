@@ -11,7 +11,8 @@
     "browserslist": "^0.2.0",
     "caniuse-db": "^1.0.30000030",
     "lodash.memoize": "^2.4.1",
-    "lodash.uniq": "^2.4.1"
+    "lodash.uniq": "^2.4.1",
+    "shelljs": "^0.3.0"
   },
   "devDependencies": {
     "6to5": "^1.14.17",
@@ -25,8 +26,8 @@
     "prepublish": "npm run build",
     "pretest": "6to5-node src/generate-features.js",
     "test": "npm run lint && 6to5-node test/*.js | tap-spec",
-    "postinstall": "[ -d dist ] && node dist/generate-features.js || true"
- },
+    "postinstall": "node -e \"require('shelljs/global');if(test('-d', 'dist'))exec('node dist/generate-features.js')\""
+  },
   "repository": "nyalab/caniuse-api",
   "keywords": [
     "caniuse",
