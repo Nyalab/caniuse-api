@@ -1,5 +1,5 @@
-import test from "tape"
-import browserslist from "browserslist"
+import * as test from "tape"
+import * as browserslist from "browserslist"
 import * as caniuse from "../src/index"
 import {cleanBrowsersList} from "../src/utils"
 
@@ -54,3 +54,4 @@ test("getSupport tests", (t) => {
   //wtf it is not working t.throws(caniuse.getSupport("canaillou"),"throws if silly thing are asked")
   t.end()
 })
+

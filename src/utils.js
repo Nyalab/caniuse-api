@@ -1,8 +1,8 @@
-import uniq from "lodash.uniq"
-import browserslist from "browserslist"
+import * as uniq from "lodash.uniq"
+import * as browserslist from "browserslist"
 
 export function contains(str, substr) {
-  return str != null && str.indexOf(substr) >= 0
+  return !!~str.indexOf(substr)
 }
 
 export function parseCaniuseData(feature, browsers) {
