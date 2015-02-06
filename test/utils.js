@@ -1,6 +1,6 @@
-import test from "tape"
-import browserslist from "browserslist"
-import uniq from "lodash.uniq"
+import * as test from "tape"
+import * as browserslist from "browserslist"
+import * as uniq from "lodash.uniq"
 import {contains, parseCaniuseData, cleanBrowsersList} from "../src/utils"
 
 test("contains should work", (t) => {
