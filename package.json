@@ -14,19 +14,20 @@
     "lodash.uniq": "^2.4.1"
   },
   "devDependencies": {
-    "6to5": "^1.14.17",
+    "6to5": "^3.3.12",
     "jshint": "^2.5.10",
     "tap-spec": "^2.1.1",
     "tape": "^3.0.3"
   },
   "scripts": {
-    "build": "6to5 src --out-dir dist",
+    "build": "npm run build_features && npm run build_source",
+    "build_features": "6to5-node bin/generate-features.js > src/features.js",
+    "build_source": "6to5 src -d dist",
     "lint": "jshint src",
     "prepublish": "npm run build",
-    "pretest": "6to5-node src/generate-features.js",
-    "test": "npm run lint && 6to5-node test/*.js | tap-spec",
-    "postinstall": "[ -d dist ] && node dist/generate-features.js || true"
- },
+    "pretest": "npm run build_features",
+    "test": "npm run lint && 6to5-node test/all.js | tap-spec"
+  },
   "repository": "nyalab/caniuse-api",
   "keywords": [
     "caniuse",
