@@ -24,7 +24,7 @@ function getSupport(query) {
   } catch(e) {
     let res = find(query)
     if (res.length === 1) return getSupport(res[0])
-    throw new ReferenceError("Please provide a proper feature name")
+    throw new ReferenceError(`Please provide a proper feature name. Cannot find ${query}`)
   }
   return parse(feature, browsers)
 }
@@ -38,7 +38,7 @@ function isSupported(feature, browsers) {
     if (res.length === 1) {
       data = require(`caniuse-db/features-json/${res[0]}`)
     } else {
-      throw new ReferenceError("Please provide a proper feature name")
+      throw new ReferenceError(`Please provide a proper feature name. Cannot find ${feature}`)
     }
   }
 
