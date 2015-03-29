@@ -1,5 +1,5 @@
-import * as test from "tape"
-import * as browserslist from "browserslist"
+import test from "tape"
+import browserslist from "browserslist"
 import * as caniuse from "../src/index"
 import {cleanBrowsersList} from "../src/utils"
 

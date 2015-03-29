@@ -1,8 +1,8 @@
-import * as memoize from "lodash.memoize"
-import * as browserslist from "browserslist"
+import memoize from "lodash.memoize"
+import browserslist from "browserslist"
 
 import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
-import * as features from "../features.json"
+import features from "../features.json"
 
 var browsers
 function setBrowserScope(browserList) {
