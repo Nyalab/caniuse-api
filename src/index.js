@@ -2,7 +2,8 @@ import memoize from "lodash.memoize"
 import browserslist from "browserslist"
 
 import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
-import features from "../features.json"
+import features from "../features"
+const featuresList = Object.keys(features)
 
 var browsers
 function setBrowserScope(browserList) {
@@ -20,7 +21,7 @@ var parse = memoize(parseCaniuseData, function(feature, browsers) {
 function getSupport(query) {
   let feature
   try {
-    feature = require(`caniuse-db/features-json/${query}`)
+    feature = features[query]
   } catch(e) {
     let res = find(query)
     if (res.length === 1) return getSupport(res[0])
@@ -32,11 +33,11 @@ function getSupport(query) {
 function isSupported(feature, browsers) {
   let data
   try {
-    data = require(`caniuse-db/features-json/${feature}`)
+    data = features[feature]
   } catch(e) {
     let res = find(feature)
     if (res.length === 1) {
-      data = require(`caniuse-db/features-json/${res[0]}`)
+      data = features[res[0]]
     } else {
       throw new ReferenceError(`Please provide a proper feature name. Cannot find ${feature}`)
     }
@@ -48,11 +49,11 @@ function isSupported(feature, browsers) {
 }
 
 function find(query) {
-  if (~features.indexOf(query)) { // exact match
+  if (~featuresList.indexOf(query)) { // exact match
     return query
   }
 
-  return features.filter((file) => contains(file, query))
+  return featuresList.filter((file) => contains(file, query))
 }
 
 function getLatestStableBrowsers() {

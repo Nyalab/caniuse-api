@@ -1,10 +1,14 @@
 import fs from "fs"
 import path from "path"
 
-var caniusePath = path.dirname(require.resolve("caniuse-db/package.json"))
-var featuresPath = path.join(caniusePath, "features-json")
-var features = fs
-  .readdirSync(featuresPath)
-  .map((file) => file.replace(".json", ""))
+const features = fs
+  .readdirSync(
+    path.join(
+      path.dirname(require.resolve("caniuse-db/package.json")),
+      "features-json"
+    )
+  )
+  .map(file => file.replace(".json", ""))
+  .map(feature => `"${feature}": require("${path.join("caniuse-db", "features-json", feature)}")`)
 
-fs.writeFileSync(path.join(__dirname, "..", "features.json"), JSON.stringify(features, null, 2))
+fs.writeFileSync(path.join(__dirname, "..", "features.js"), `module.exports = {${features.join(",\n")}}`)
