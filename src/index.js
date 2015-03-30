@@ -21,7 +21,7 @@ var parse = memoize(parseCaniuseData, function(feature, browsers) {
 function getSupport(query) {
   let feature
   try {
-    feature = features[query]
+    feature = features[query]()
   } catch(e) {
     let res = find(query)
     if (res.length === 1) return getSupport(res[0])
@@ -33,11 +33,11 @@ function getSupport(query) {
 function isSupported(feature, browsers) {
   let data
   try {
-    data = features[feature]
+    data = features[feature]()
   } catch(e) {
     let res = find(feature)
     if (res.length === 1) {
-      data = features[res[0]]
+      data = features[res[0]]()
     } else {
       throw new ReferenceError(`Please provide a proper feature name. Cannot find ${feature}`)
     }
