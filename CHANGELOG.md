@@ -1,4 +1,13 @@
-# 1.2.1
+# 1.3.0 - 2015-03-30
+
+- Added: better exception messages
+- Added: full browserify compatibility (by avoiding dynamic require)
+
+# 1.2.2 - 2015-02-06
+
+- Fixed: postinstall hook for Windows
+
+# 1.2.1 - 2015-02-04
 
 - Changed: Allow in browser usage by avoiding `require.resolve` and using a generated json instead or reading a directory ([#20](https://github.com/Nyalab/caniuse-api/pull/20)]
 

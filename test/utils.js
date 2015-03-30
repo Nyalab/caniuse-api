@@ -1,6 +1,6 @@
-import * as test from "tape"
-import * as browserslist from "browserslist"
-import * as uniq from "lodash.uniq"
+import test from "tape"
+import browserslist from "browserslist"
+import uniq from "lodash.uniq"
 import {contains, parseCaniuseData, cleanBrowsersList} from "../src/utils"
 
 test("contains should work", (t) => {
@@ -25,7 +25,8 @@ test("parseCaniuseData should work", (t) => {
     chrome: { y: 4, x: 4 },
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
-    and_chr: { y: 40 }
+    // workaround for https://github.com/Nyalab/caniuse-api/issues/19
+    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) }
   }
 
   t.deepEqual(parseCaniuseData(borderRadiusFeature, browsers), correctSupport, "border-radius support is correct")

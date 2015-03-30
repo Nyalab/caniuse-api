@@ -1,5 +1,5 @@
-import * as test from "tape"
-import * as browserslist from "browserslist"
+import test from "tape"
+import browserslist from "browserslist"
 import * as caniuse from "../src/index"
 import {cleanBrowsersList} from "../src/utils"
 
@@ -36,6 +36,8 @@ test("isSupported tests", (t) => {
 
 test("getSupport tests", (t) => {
   caniuse.setBrowserScope()
+
+  let borderRadiusFeature = require('caniuse-db/features-json/border-radius')
   let borderRadiusSupport = {
     safari: { y: 3.1, x: 4, '#1': 6.1 },
     opera: { n: 10, y: 10.5 },
@@ -47,7 +49,8 @@ test("getSupport tests", (t) => {
     chrome: { y: 4, x: 4 },
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
-    and_chr: { y: 40 }
+    // workaround for https://github.com/Nyalab/caniuse-api/issues/19
+    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) }
   }
 
   t.deepEqual(caniuse.getSupport("border-radius"), borderRadiusSupport, "border-radius support is ok")

@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "request the caniuse data to check browsers compatibilities",
   "main": "dist/index.js",
   "files": [
@@ -15,17 +15,18 @@
     "shelljs": "^0.3.0"
   },
   "devDependencies": {
-    "6to5": "^1.14.17",
+    "babel": "^4.7.16",
+    "babel-tape-runner": "^1.0.0",
     "jshint": "^2.5.10",
     "tap-spec": "^2.1.1",
     "tape": "^3.0.3"
   },
   "scripts": {
-    "build": "6to5 src --out-dir dist",
+    "build": "babel src --out-dir dist",
     "lint": "jshint src",
     "prepublish": "npm run build",
-    "pretest": "6to5-node src/generate-features.js",
-    "test": "npm run lint && 6to5-node test/*.js | tap-spec",
+    "pretest": "babel-node src/generate-features.js",
+    "test": "npm run lint && babel-tape-runner test/*.js | tap-spec",
     "postinstall": "node -e \"require('shelljs/global');if(test('-d', 'dist'))exec('node dist/generate-features.js')\""
   },
   "repository": "nyalab/caniuse-api",
