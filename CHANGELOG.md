@@ -1,3 +1,7 @@
+# 1.3.1 - 2015-03-31
+
+- Fixed: Windows support
+
 # 1.3.0 - 2015-03-30
 
 - Added: better exception messages
