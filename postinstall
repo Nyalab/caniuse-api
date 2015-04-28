@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var test = require("shelljs").test
+
+if(test("-d", "dist")) {
+  require("./dist/generate-features.js")
+}
+
+process.exit(0)
