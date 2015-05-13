@@ -8,7 +8,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "browserslist": "^0.2.0",
+    "browserslist": "^0.4.0",
     "caniuse-db": "^1.0.30000030",
     "lodash.memoize": "^2.4.1",
     "lodash.uniq": "^2.4.1",
