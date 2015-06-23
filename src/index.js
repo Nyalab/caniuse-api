@@ -1,4 +1,4 @@
-import memoize from "lodash.memoize"
+import memoize from "lodash/function/memoize"
 import browserslist from "browserslist"
 
 import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
