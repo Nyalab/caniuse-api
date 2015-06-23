@@ -1,3 +1,8 @@
+# 1.3.2 - 2015-06-23
+
+- Fixed: lodash.uniq dep
+([#31](https://github.com/Nyalab/caniuse-api/issues/31))
+
 # 1.3.1 - 2015-03-31
 
 - Fixed: Windows support
