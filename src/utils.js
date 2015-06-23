@@ -1,4 +1,4 @@
-import uniq from "lodash.uniq"
+import uniq from "lodash/array/uniq"
 import browserslist from "browserslist"
 
 export function contains(str, substr) {
