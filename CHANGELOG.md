@@ -1,3 +1,10 @@
+# 1.4.0 - 2015-10-18
+
+- Upgraded: browserlist 1.x
+- Upgraded: shelljs 0.5.x
+- Added: output to notify if generation has been made or not
+(related to [#25](https://github.com/Nyalab/caniuse-api/issues/25))
+
 # 1.3.2 - 2015-06-23
 
 - Fixed: lodash.uniq dep

@@ -44,6 +44,7 @@ test("getSupport tests", (t) => {
     op_mini: { n: 5 },
     ios_saf: { y: 3.2, x: 3.2 },
     ie_mob: { y: 10 },
+    edge: { y: 12 },
     ie: { n: 8, y: 9 },
     firefox: { a: 2, x: 3.6, y: 3 },
     chrome: { y: 4, x: 4 },
