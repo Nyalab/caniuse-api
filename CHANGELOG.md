@@ -1,3 +1,7 @@
+# 1.4.1 - 2015-10-18
+
+- Fixed: `generator.js` was missing
+
 # 1.4.0 - 2015-10-18
 
 - Upgraded: browserlist 1.x

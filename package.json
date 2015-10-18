@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "request the caniuse data to check browsers compatibilities",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
-    "dist/"
+    "dist",
+    "generator.js"
   ],
   "dependencies": {
     "browserslist": "^1.0.1",
