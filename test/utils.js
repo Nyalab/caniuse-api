@@ -42,7 +42,6 @@ test("cleanBrowsersList should work", (t) => {
 
   t.deepEqual(cleanBrowsersList(dirtyList).sort(), cleanList.sort(), "remove version numbers and deduplicate the list")
   t.deepEqual(cleanBrowsersList([]), [], "giving empty array returns empty array")
-  t.throws(cleanBrowsersList(null), "giving not an array should throw")
 
   t.end()
 })
