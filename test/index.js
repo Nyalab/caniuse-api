@@ -17,7 +17,7 @@ test("find tests", (t) => {
   t.deepEqual(caniuse.find("radius"), ["border-radius"], "`find` should find border-radius")
   t.deepEqual(caniuse.find("canaillou"), [], "non-existent property should return an empty array")
   t.ok(caniuse.find("border").length, "generic property name should return several results")
-  t.throws(caniuse.find(null), "not a string should throw an exception")
+  t.throws(() => caniuse.find(null), "not a string should throw an exception")
   t.end()
 })
 
@@ -30,7 +30,7 @@ test("getLatestStableBrowsers tests", (t) => {
 test("isSupported tests", (t) => {
   t.ok(caniuse.isSupported("border-radius", "ie 9"), "border-radius is supported on ie 9")
   t.notOk(caniuse.isSupported("border-radius", "ie 8"), "border-radius is not supported on ie 8")
-  //wtf it is not working t.throws(caniuse.isSupported("canaillou", "chrome 37"),"throws if silly thing are asked")
+  t.throws(() => caniuse.isSupported("canaillou", "chrome 37"),"throws if silly thing are asked")
   t.end()
 })
 
@@ -55,7 +55,6 @@ test("getSupport tests", (t) => {
   }
 
   t.deepEqual(caniuse.getSupport("border-radius"), borderRadiusSupport, "border-radius support is ok")
-  //wtf it is not working t.throws(caniuse.getSupport("canaillou"),"throws if silly thing are asked")
+  t.throws(() => caniuse.getSupport("canaillou"),"throws if silly thing are asked")
   t.end()
 })
-

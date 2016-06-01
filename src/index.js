@@ -49,6 +49,10 @@ function isSupported(feature, browsers) {
 }
 
 function find(query) {
+  if (typeof query !== "string") {
+    throw new TypeError("The `query` parameter should be a string.")
+  }
+
   if (~featuresList.indexOf(query)) { // exact match
     return query
   }
@@ -63,4 +67,3 @@ function getLatestStableBrowsers() {
 setBrowserScope()
 
 export {getSupport, isSupported, find, getLatestStableBrowsers, setBrowserScope, getBrowserScope}
-
