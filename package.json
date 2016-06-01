@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "request the caniuse data to check browsers compatibilities",
   "repository": {
     "type": "git",

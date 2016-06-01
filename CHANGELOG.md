@@ -1,3 +1,10 @@
+# 1.5.0 - 2016-06-01
+
+- Added: JSPM support with explicit file extensions ([#40](https://github.com/Nyalab/caniuse-api/issues/40))
+- Upgraded: dependecies (lodash.memoize, lodash.uniq, shelljs, babel-tape-runner, tape, tap-spec)
+- Upgraded: ask travis to only test node stable
+- Upgraded: some tests fixed, some tests added
+
 # 1.4.1 - 2015-10-18
 
 - Fixed: `generator.js` was missing
