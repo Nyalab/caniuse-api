@@ -8,9 +8,6 @@ const features = fs
       "features-json"
     )
   )
-  .map(file => {
-    const feature = file.replace(".json", "")
-    return `"${feature}": function() { return require("caniuse-db/features-json/${file}")}`
-  })
+  .map(file => `"${file.replace(".json", "")}": function() { return require("caniuse-db/features-json/${file}")}`)
 
 fs.writeFileSync(path.join(__dirname, "..", "features.js"), `module.exports = {${features.join(",\n")}}`)
