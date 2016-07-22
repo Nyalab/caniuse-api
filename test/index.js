@@ -41,7 +41,7 @@ test("getSupport tests", (t) => {
   let borderRadiusSupport = {
     safari: { y: 3.1, x: 4, '#1': 6.1 },
     opera: { n: 10, y: 10.5 },
-    op_mini: { n: 5 },
+    op_mini: {},
     ios_saf: { y: 3.2, x: 3.2 },
     ie_mob: { y: 10 },
     edge: { y: 12 },
@@ -51,7 +51,8 @@ test("getSupport tests", (t) => {
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
     // workaround for https://github.com/Nyalab/caniuse-api/issues/19
-    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) }
+    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) },
+    samsung: { y: 4 }
   }
 
   t.deepEqual(caniuse.getSupport("border-radius"), borderRadiusSupport, "border-radius support is ok")
