@@ -34,6 +34,23 @@ test("isSupported tests", (t) => {
   t.end()
 })
 
+// If for some reason the caniuse-db is not the same in browserslist and in caniuse-api
+// browserslist could return browsers that caniuse-api doesn't know about and crashes
+test("isSupported test with browsers caniuse doesn't know", (t) => {
+  browserslist.data.notabrowser = {
+    name: 'notabrowser',
+    versions: ['1'],
+    released: ['1']
+  };
+  browserslist.versionAliases.notabrowser = {}
+
+  t.notOk(caniuse.isSupported("border-radius", "notabrowser 1"), "do not throw on non existing data")
+
+  delete browserslist.data.notabrowser
+  delete browserslist.versionAliases.notabrowser
+  t.end()
+})
+
 test("getSupport tests", (t) => {
   caniuse.setBrowserScope()
 

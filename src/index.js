@@ -45,7 +45,7 @@ function isSupported(feature, browsers) {
 
   return browserslist(browsers)
     .map((browser) => browser.split(" "))
-    .every((browser) => data.stats[browser[0]][browser[1]] === "y")
+    .every((browser) => data.stats[browser[0]] && data.stats[browser[0]][browser[1]] === "y")
 }
 
 function find(query) {
