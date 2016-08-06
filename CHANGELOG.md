@@ -1,3 +1,9 @@
+# 1.5.1 - 2016-08-06
+
+- Fixed: Do not fail when browserslist gives a browser that caniuse-api doesn't
+  know about
+  ([#45](https://github.com/Nyalab/caniuse-api/pull/45) - @onigoetz)
+
 # 1.5.0 - 2016-06-01
 
 - Added: JSPM support with explicit file extensions ([#40](https://github.com/Nyalab/caniuse-api/issues/40))
