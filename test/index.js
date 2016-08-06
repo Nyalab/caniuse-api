@@ -34,6 +34,23 @@ test("isSupported tests", (t) => {
   t.end()
 })
 
+// If for some reason the caniuse-db is not the same in browserslist and in caniuse-api
+// browserslist could return browsers that caniuse-api doesn't know about and crashes
+test("isSupported test with browsers caniuse doesn't know", (t) => {
+  browserslist.data.notabrowser = {
+    name: 'notabrowser',
+    versions: ['1'],
+    released: ['1']
+  };
+  browserslist.versionAliases.notabrowser = {}
+
+  t.notOk(caniuse.isSupported("border-radius", "notabrowser 1"), "do not throw on non existing data")
+
+  delete browserslist.data.notabrowser
+  delete browserslist.versionAliases.notabrowser
+  t.end()
+})
+
 test("getSupport tests", (t) => {
   caniuse.setBrowserScope()
 
@@ -41,7 +58,7 @@ test("getSupport tests", (t) => {
   let borderRadiusSupport = {
     safari: { y: 3.1, x: 4, '#1': 6.1 },
     opera: { n: 10, y: 10.5 },
-    op_mini: { n: 5 },
+    op_mini: {},
     ios_saf: { y: 3.2, x: 3.2 },
     ie_mob: { y: 10 },
     edge: { y: 12 },
@@ -51,7 +68,8 @@ test("getSupport tests", (t) => {
     android: { y: 2.1, x: 2.1 },
     and_uc: { y: 9.9 },
     // workaround for https://github.com/Nyalab/caniuse-api/issues/19
-    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) }
+    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) },
+    samsung: { y: 4 }
   }
 
   t.deepEqual(caniuse.getSupport("border-radius"), borderRadiusSupport, "border-radius support is ok")
