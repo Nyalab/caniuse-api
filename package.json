@@ -14,8 +14,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
-    "dist",
-    "generator.js"
+    "dist"
   ],
   "dependencies": {
     "browserslist": "^1.0.1",
@@ -36,9 +35,7 @@
     "build": "babel src --out-dir dist",
     "lint": "jshint src",
     "prepublish": "npm run build",
-    "pretest": "babel-node src/generate-features.js",
     "test": "npm run lint && babel-tape-runner test/*.js | tap-spec",
-    "postinstall": "node generator.js",
     "release": "npmpub"
   }
 }
