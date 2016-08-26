@@ -41,7 +41,7 @@ function isSupported(feature, browsers) {
   } catch(e) {
     let res = find(feature)
     if (res.length === 1) {
-      data = features[res[0]]()
+      data = features[res[0]]
     } else {
       throw new ReferenceError(`Please provide a proper feature name. Cannot find ${feature}`)
     }
