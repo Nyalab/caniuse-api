@@ -1,3 +1,8 @@
+# 1.5.2 - 2016-09-05
+
+- Fixed: no more generation `postinstall` hook ``\o/``.
+  ([#47](https://github.com/Nyalab/caniuse-api/pull/47) - @alexisvincent)
+
 # 1.5.1 - 2016-08-06
 
 - Fixed: Do not fail when browserslist gives a browser that caniuse-api doesn't
