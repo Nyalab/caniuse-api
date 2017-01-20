@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "browserslist": "^1.0.1",
-    "caniuse-db": "^1.0.30000346",
+    "caniuse-db": "^1.0.30000613",
     "lodash.memoize": "^4.1.0",
     "lodash.uniq": "^4.3.0",
     "shelljs": "^0.7.0"
