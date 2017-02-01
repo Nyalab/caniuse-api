@@ -11,35 +11,21 @@ test("contains should work", (t) => {
 })
 
 test("parseCaniuseData should work", (t) => {
-  let browsers = cleanBrowsersList()
+  const browsers = cleanBrowsersList()
+  const borderRadiusFeature = require('caniuse-db/features-json/border-radius')
+  const parsed = parseCaniuseData(borderRadiusFeature, browsers)
 
-  let borderRadiusFeature = require('caniuse-db/features-json/border-radius')
-  let correctSupport = {
-    safari: { y: 3.1, x: 4, '#1': 6.1 },
-    opera: { n: 10, y: 10.5 },
-    op_mini: { },
-    ios_saf: { y: 3.2, x: 3.2 },
-    ie_mob: { y: 10 },
-    ie: { n: 8, y: 9 },
-    edge: { y: 12 },
-    firefox: { a: 2, x: 3.6, y: 3 },
-    chrome: { y: 4, x: 4 },
-    android: { y: 2.1, x: 2.1 },
-    and_uc: { y: 9.9 },
-    // workaround for https://github.com/Nyalab/caniuse-api/issues/19
-    and_chr: { y: parseInt(Object.keys(borderRadiusFeature.stats.and_chr).filter(v => borderRadiusFeature.stats.and_chr[v] === "y").pop()) },
-    samsung: { y: 4 }
-  }
-
-  t.deepEqual(parseCaniuseData(borderRadiusFeature, browsers), correctSupport, "border-radius support is correct")
+  t.ok(parsed.safari.y, "border-radius support is ok on some safari")
+  t.ok(parsed.firefox.y, "border-radius support is ok on some firefox")
+  t.ok(parsed.chrome.y, "border-radius support is ok on some chrome")
   t.deepEqual(parseCaniuseData(borderRadiusFeature, []), [], "passing an empty browser list returns an empty array")
 
   t.end()
 })
 
 test("cleanBrowsersList should work", (t) => {
-  let dirtyList = ["firefox 4", "firefox 3.6", "opera 12.1", "ie 8", "ie 9", "chrome 37"]
-  let cleanList = ["firefox", "opera", "ie", "chrome"]
+  const dirtyList = ["firefox 4", "firefox 3.6", "opera 12.1", "ie 8", "ie 9", "chrome 37"]
+  const cleanList = ["firefox", "opera", "ie", "chrome"]
 
   t.deepEqual(cleanBrowsersList(dirtyList).sort(), cleanList.sort(), "remove version numbers and deduplicate the list")
   t.deepEqual(cleanBrowsersList([]), [], "giving empty array returns empty array")
