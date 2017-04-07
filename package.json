@@ -1,6 +1,6 @@
 {
   "name": "caniuse-api",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "request the caniuse data to check browsers compatibilities",
   "repository": "https://github.com/nyalab/caniuse-api.git",
   "keywords": [

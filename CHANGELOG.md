@@ -1,4 +1,4 @@
-# 1.6.0 - 2017-04-06
+# 1.6.1 - 2017-04-07
 
 - Added: export the feature list
   ([#48](https://github.com/Nyalab/caniuse-api/pull/48))
