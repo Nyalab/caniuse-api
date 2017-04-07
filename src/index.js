@@ -5,11 +5,9 @@ import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
 import db from "caniuse-db/data.json"
 
 const features = db.data
-
 const featuresList = Object.keys(features)
 
-
-var browsers
+let browsers
 function setBrowserScope(browserList) {
   browsers = cleanBrowsersList(browserList)
 }
@@ -18,7 +16,7 @@ function getBrowserScope() {
   return browsers
 }
 
-var parse = memoize(parseCaniuseData, function(feature, browsers) {
+const parse = memoize(parseCaniuseData, function(feature, browsers) {
   return feature.title + browsers
 })
 
@@ -70,4 +68,12 @@ function getLatestStableBrowsers() {
 
 setBrowserScope()
 
-export {getSupport, isSupported, find, getLatestStableBrowsers, setBrowserScope, getBrowserScope}
+export {
+  featuresList as features,
+  getSupport,
+  isSupported,
+  find,
+  getLatestStableBrowsers,
+  setBrowserScope,
+  getBrowserScope
+}

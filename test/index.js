@@ -13,6 +13,12 @@ test("browserscope tests", (t) => {
   t.end()
 })
 
+test("features test", (t) => {
+  t.ok(Array.isArray(caniuse.features), "a feature list is exported")
+  t.ok(caniuse.features.length > 0, "the feature list is not empty")
+  t.end()
+})
+
 test("find tests", (t) => {
   t.deepEqual(caniuse.find("radius"), ["border-radius"], "`find` should find border-radius")
   t.deepEqual(caniuse.find("canaillou"), [], "non-existent property should return an empty array")
