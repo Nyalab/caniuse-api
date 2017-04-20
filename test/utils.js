@@ -1,6 +1,7 @@
 import test from "tape"
 import browserslist from "browserslist"
 import uniq from "lodash.uniq"
+import {feature} from "caniuse-lite"
 import {contains, parseCaniuseData, cleanBrowsersList} from "../src/utils"
 
 test("contains should work", (t) => {
@@ -12,7 +13,7 @@ test("contains should work", (t) => {
 
 test("parseCaniuseData should work", (t) => {
   const browsers = cleanBrowsersList()
-  const borderRadiusFeature = require('caniuse-db/features-json/border-radius')
+  const borderRadiusFeature = feature(require('caniuse-lite/data/features/border-radius'))
   const parsed = parseCaniuseData(borderRadiusFeature, browsers)
 
   t.ok(parsed.safari.y, "border-radius support is ok on some safari")

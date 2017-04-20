@@ -1,5 +1,6 @@
 import test from "tape"
 import browserslist from "browserslist"
+import {feature} from "caniuse-lite"
 import * as caniuse from "../src/index"
 import {cleanBrowsersList} from "../src/utils"
 
@@ -60,7 +61,7 @@ test("isSupported test with browsers caniuse doesn't know", (t) => {
 test("getSupport tests", (t) => {
   caniuse.setBrowserScope()
 
-  const borderRadiusFeature = require('caniuse-db/features-json/border-radius')
+  const borderRadiusFeature = feature(require('caniuse-lite/data/features/border-radius'))
   const support = caniuse.getSupport("border-radius")
   t.ok(support.safari.y, "border-radius support is ok on some safari")
   t.throws(() => caniuse.getSupport("canaillou"),"throws if silly thing are asked")
