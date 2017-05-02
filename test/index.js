@@ -30,7 +30,7 @@ test("find tests", (t) => {
 
 test("getLatestStableBrowsers tests", (t) => {
   t.ok(caniuse.getLatestStableBrowsers().length, "it should return an array of results")
-  t.ok(caniuse.getLatestStableBrowsers().every((browser) => browser.match(/[A-z_]+ [0-9]+/)), "every entry is correctly formed")
+  t.ok(caniuse.getLatestStableBrowsers().every((browser) => browser.match(/[A-z_]+ ([0-9\.\-]+|all)/)), "every entry is correctly formed")
   t.end()
 })
 
