@@ -1,10 +1,9 @@
 import memoize from "lodash.memoize"
 import browserslist from "browserslist"
+import {features, feature as featureUnpack} from "caniuse-lite"
 
 import {contains, parseCaniuseData, cleanBrowsersList} from "./utils"
-import db from "caniuse-db/data.json"
 
-const features = db.data
 const featuresList = Object.keys(features)
 
 let browsers
@@ -16,14 +15,14 @@ function getBrowserScope() {
   return browsers
 }
 
-const parse = memoize(parseCaniuseData, function(feature, browsers) {
-  return feature.title + browsers
+const parse = memoize(parseCaniuseData, function(feat, browsers) {
+  return feat.title + browsers
 })
 
 function getSupport(query) {
   let feature
   try {
-    feature = features[query]
+    feature = featureUnpack(features[query])
   } catch(e) {
     let res = find(query)
     if (res.length === 1) return getSupport(res[0])
@@ -35,7 +34,7 @@ function getSupport(query) {
 function isSupported(feature, browsers) {
   let data
   try {
-    data = features[feature]
+    data = featureUnpack(features[feature])
   } catch(e) {
     let res = find(feature)
     if (res.length === 1) {
