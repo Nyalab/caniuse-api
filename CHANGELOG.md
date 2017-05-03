@@ -1,3 +1,8 @@
+# 2.0.0 - 2017-05-03
+
+- Changed: we now use caniuse-lite instead if caniuse-db
+  ([#59](https://github.com/Nyalab/caniuse-api/pull/59))
+
 # 1.6.1 - 2017-04-07
 
 - Added: export the feature list
