@@ -62,7 +62,7 @@ function find(query) {
 }
 
 function getLatestStableBrowsers() {
-  return browserslist.queries.lastVersions.select(1)
+  return browserslist.queries.lastVersions.select(this, 1)
 }
 
 setBrowserScope()
