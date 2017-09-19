@@ -29,7 +29,7 @@ _ask since which browsers versions a feature is available_
 * `y`: Since which browser version the feature is available
 * `n`: Up to which browser version the feature is unavailable
 * `a`: Up to which browser version the feature is partially supported
-* `X`: Up to which browser version the feature is prefixed
+* `x`: Up to which browser version the feature is prefixed
 
 ```js
 caniuse.getSupport('border-radius', true)
