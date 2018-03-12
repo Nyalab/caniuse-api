@@ -37,7 +37,9 @@ test("getLatestStableBrowsers tests", (t) => {
 test("isSupported tests", (t) => {
   t.ok(caniuse.isSupported("border-radius", "ie 9"), "border-radius is supported on ie 9")
   t.notOk(caniuse.isSupported("border-radius", "ie 8"), "border-radius is not supported on ie 8")
-  t.throws(() => caniuse.isSupported("canaillou", "chrome 37"),"throws if silly thing are asked")
+  t.ok(caniuse.isSupported("border-radius", "chrome 45, ie 11"), "works when you pass multiple browsers")
+  t.throws(() => caniuse.isSupported("canaillou", "chrome 37"), "throws if silly thing are asked")
+  t.throws(() => caniuse.isSupported("border-radius", "not a real browser"), "throws if you do not pass a real browser")
   t.end()
 })
 
