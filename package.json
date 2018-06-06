@@ -17,7 +17,7 @@
     "dist"
   ],
   "dependencies": {
-    "browserslist": "^3.0.0",
+    "browserslist": "^3.2.0",
     "caniuse-lite": "^1.0.0",
     "lodash.memoize": "^4.1.2",
     "lodash.uniq": "^4.5.0"

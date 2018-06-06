@@ -5,7 +5,7 @@ request the caniuse data to check browsers compatibilities
 ## Installation
 
 ```console
-$ npm install caniuse-api --save
+$ yarn add caniuse-api
 ```
 
 ## Usage
