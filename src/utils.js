@@ -13,12 +13,14 @@ export function parseCaniuseData(feature, browsers) {
   browsers.forEach(function(browser) {
     support[browser] = {}
     for (var info in feature.stats[browser]) {
-      letters = feature.stats[browser][info].split(" ")
+      letters = feature.stats[browser][info].replace(/#\d+/, "").trim().split(" ")
       info = parseFloat(info.split("-")[0]) //if info is a range, take the left
       if (isNaN(info)) continue
       for (var i = 0; i < letters.length ; i++) {
         letter = letters[i]
-        if (letter === "y"){ // min support asked, need to find the min value
+        if (letter === "d") { // skip this letter, we don't support it yet
+          continue
+        } else if (letter === "y"){ // min support asked, need to find the min value
           if (typeof support[browser][letter] === "undefined" ||
               info < support[browser][letter]) {
             support[browser][letter] = info
