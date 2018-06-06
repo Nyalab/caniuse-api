@@ -1,3 +1,7 @@
+# 2.1.0 - 2018-06-06
+
+- Upgraded: browserlist, caniuse-lite
+
 # 2.0.0 - 2017-05-03
 
 - Changed: we now use caniuse-lite instead if caniuse-db

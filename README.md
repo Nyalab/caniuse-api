@@ -34,14 +34,23 @@ _ask since which browsers versions a feature is available_
 ```js
 caniuse.getSupport('border-radius', true)
 /*
-[ safari: { y: 3.1, x: 4 },
-  opera: { n: 10, y: 10.5 },
-  ios_saf: { y: 3.2, x: 3.2 },
-  ie_mob: { y: 10 },
-  ie: { n: 8, y: 9 },
-  firefox: { a: 2, x: 3.6, y: 3 },
+{ and_chr: { y: 66 },
+  and_ff: { y: 60 },
+  and_qq: { y: 1.2 },
+  and_uc: { y: 11.8 },
+  android: { y: 2.1, x: 2.1 },
+  baidu: { y: 7.12 },
   chrome: { y: 4, x: 4 },
-  and_chr: { y: 39 } ]
+  edge: { y: 12 },
+  firefox: { a: 2, x: 3.6, y: 3 },
+  ie: { n: 8, y: 9 },
+  ie_mob: { y: 10 },
+  ios_saf: { y: 3.2, x: 3.2 },
+  op_mini: {},
+  op_mob: { n: 10, y: 11 },
+  opera: { n: 10, y: 10.5 },
+  safari: { y: 3.1, x: 4 },
+  samsung: { y: 4 } }
 */
 ```
 
@@ -65,8 +74,10 @@ caniuse.find('radius') // ['border-radius']
 caniuse.find('nothingness') // []
 caniuse.find('css3')
 /*
-[ 'css3-boxsizing',
+[ 'css3-attr',
+  'css3-boxsizing',
   'css3-colors',
+  'css3-cursors-grab',
   'css3-cursors-newer',
   'css3-cursors',
   'css3-tabsize' ]
@@ -80,13 +91,24 @@ _get the current version for each browser_
 ```js
 caniuse.getLatestStableBrowsers()
 /*
-[ 'safari 8',
-  'opera 26',
-  'ios_saf 8.1',
-  'ie_mob 11',
+[ 'and_chr 66',
+  'and_ff 60',
+  'and_qq 1.2',
+  'and_uc 11.8',
+  'android 66',
+  'baidu 7.12',
+  'bb 10',
+  'chrome 66',
+  'edge 17',
+  'firefox 60',
   'ie 11',
-  'firefox 33',
-  'chrome 39' ]
+  'ie_mob 11',
+  'ios_saf 11.3',
+  'op_mini all',
+  'op_mob 46',
+  'opera 53',
+  'safari 11.1',
+  'samsung 6.2' ]
 */
 ```
 
@@ -97,17 +119,23 @@ _returns a list of browsers currently used for the scope of operations_
 ```js
 caniuse.getBrowserScope()
 /*
-[ 'safari',
-  'opera',
-  'op_mini',
-  'ios_saf',
-  'ie_mob',
-  'ie',
-  'firefox',
-  'chrome',
-  'android',
+[ 'and_chr',
+  'and_ff',
+  'and_qq',
   'and_uc',
-  'and_chr' ]
+  'android',
+  'baidu',
+  'chrome',
+  'edge',
+  'firefox',
+  'ie',
+  'ie_mob',
+  'ios_saf',
+  'op_mini',
+  'op_mob',
+  'opera',
+  'safari',
+  'samsung' ]
 */
 ```
 
