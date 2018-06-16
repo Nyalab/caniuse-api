@@ -17,3 +17,7 @@ test_script:
   - npm --version
   - ps: "npm test # PowerShell"
   - cmd: "npm test"
+
+cache:
+  - '%APPDATA%\npm-cache'
+  - node_modules
