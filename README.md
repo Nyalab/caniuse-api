@@ -34,7 +34,7 @@ _ask since which browsers versions a feature is available_
 ```js
 caniuse.getSupport('border-radius', true)
 /*
-{ and_chr: { y: 66 },
+{ and_chr: { y: 67 },
   and_ff: { y: 60 },
   and_qq: { y: 1.2 },
   and_uc: { y: 11.8 },
@@ -91,24 +91,24 @@ _get the current version for each browser_
 ```js
 caniuse.getLatestStableBrowsers()
 /*
-[ 'and_chr 66',
+[ 'and_chr 67',
   'and_ff 60',
   'and_qq 1.2',
   'and_uc 11.8',
-  'android 66',
+  'android 67',
   'baidu 7.12',
   'bb 10',
-  'chrome 66',
+  'chrome 67',
   'edge 17',
-  'firefox 60',
+  'firefox 61',
   'ie 11',
   'ie_mob 11',
-  'ios_saf 11.3',
+  'ios_saf 11.3-11.4',
   'op_mini all',
   'op_mob 46',
   'opera 53',
   'safari 11.1',
-  'samsung 6.2' ]
+  'samsung 7.2' ]
 */
 ```
 

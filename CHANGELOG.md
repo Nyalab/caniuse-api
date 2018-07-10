@@ -1,6 +1,10 @@
-# 2.1.0 - 2018-06-06
+# 3.0.0 - 2018-07-10
 
-- Upgraded: browserlist, caniuse-lite
+- Upgraded: browserslist
+
+# 2.1.0 - 2018-06-06 (never released to npm)
+
+- Upgraded: browserslist, caniuse-lite
 
 # 2.0.0 - 2017-05-03
 
@@ -41,7 +45,7 @@
 
 # 1.4.0 - 2015-10-18
 
-- Upgraded: browserlist 1.x
+- Upgraded: browserslist 1.x
 - Upgraded: shelljs 0.5.x
 - Added: output to notify if generation has been made or not
 (related to [#25](https://github.com/Nyalab/caniuse-api/issues/25))
