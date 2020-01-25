@@ -35,8 +35,9 @@ test("getLatestStableBrowsers tests", (t) => {
 })
 
 test("isSupported tests", (t) => {
-  t.ok(caniuse.isSupported("intersectionobserver", "safari 12.0.2, chrome 70"), "intersection-obesrver is supported on safari 12.0.2 and chrome 70")
-  t.notOk(caniuse.isSupported("intersectionobserver", "safari 12.0, chrome 50"), "intersection-obesrver is not supported on safari 12.0 and chrome 50")
+  t.ok(caniuse.isSupported("intersectionobserver", "chrome 69"), "intersection-obesrver is supported on chrome 69")
+  t.notOk(caniuse.isSupported("intersectionobserver", "chrome 50"), "intersection-obesrver is not supported on chrome 50")
+  t.throws(() => caniuse.isSupported("intersectionobserver", "safari 12.0.2"), "throws if browser is an unknown version")
   t.ok(caniuse.isSupported("border-radius", "ie 9"), "border-radius is supported on ie 9")
   t.notOk(caniuse.isSupported("border-radius", "ie 8"), "border-radius is not supported on ie 8")
   t.ok(caniuse.isSupported("border-radius", "chrome 45, ie 11"), "works when you pass multiple browsers")
